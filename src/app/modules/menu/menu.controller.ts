@@ -18,6 +18,25 @@ export const getMenu = async (req: Request, res: Response) => {
   }
 }
 
+export const getAllCategoriesAndImages = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const data = await menuService.getMenuCategoryAndImageFromDatabase()
+    res.status(200).json({
+      success: true,
+      message: 'Successfully load data',
+      data: data,
+    })
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: 'Failed to load data',
+    })
+  }
+}
+
 export const getAllCategories = async (req: Request, res: Response) => {
   try {
     const categories = await menuService.getAllMenuCategoryFromDatabase()
@@ -37,7 +56,13 @@ export const getAllCategories = async (req: Request, res: Response) => {
 export const getMenuByCategories = async (req: Request, res: Response) => {
   try {
     const { category } = req.params
-    const menu = await menuService.getMenuByCategoryFromDatabase(category)
+    const { limit } = req.query
+
+    const parsedLimit = limit ? parseInt(limit as string, 10) : undefined
+    const menu = await menuService.getMenuByCategoryFromDatabase(
+      category,
+      parsedLimit
+    )
     res.status(200).json({
       success: true,
       message: 'Successfully load data',
@@ -53,6 +78,7 @@ export const getMenuByCategories = async (req: Request, res: Response) => {
 
 export default {
   getMenu,
+  getAllCategoriesAndImages,
   getAllCategories,
   getMenuByCategories,
 }
