@@ -4,7 +4,9 @@ import menuService from './menu.service'
 
 export const getMenu = async (req: Request, res: Response) => {
   try {
-    const menu = await menuService.getAllMenuFromDatabase()
+    const { limit } = req.query
+    const parsedLimit = limit ? parseInt(limit as string, 10) : undefined
+    const menu = await menuService.getAllMenuFromDatabase(parsedLimit)
     res.status(200).json({
       success: true,
       message: 'Successfully load data',

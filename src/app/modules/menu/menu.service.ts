@@ -1,7 +1,13 @@
 import { Menu } from './menu.model'
 
-const getAllMenuFromDatabase = async () => {
-  const menu = await Menu.find().limit(6)
+const getAllMenuFromDatabase = async (limit?: number) => {
+  let menuQuery = Menu.find()
+  
+  if (limit) {
+    menuQuery = menuQuery.limit(limit)
+  }
+
+  const menu = await menuQuery.exec()
   return menu
 }
 
@@ -36,7 +42,7 @@ const getMenuByCategoryFromDatabase = async (
   let menuQuery = Menu.find({ category })
 
   if (limit) {
-    menuQuery = menuQuery.limit(3)
+    menuQuery = menuQuery.limit(limit)
   }
 
   const menu = await menuQuery.exec()
