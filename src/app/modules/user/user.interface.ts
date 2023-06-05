@@ -3,9 +3,9 @@ type IUser = {
   email: string
   password: string
   confirmPassword: string
-  verificationCode: string
-  passwordResetCode: string | null
+  photo: string
   verified: boolean
+  role: string
 }
 
 export default IUser
