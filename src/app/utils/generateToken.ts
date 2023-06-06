@@ -10,7 +10,7 @@ const generateToken = (user: Partial<IUser>) => {
   }
 
   const token = jwt.sign(user, jwtSecret, {
-    expiresIn: '5h',
+    expiresIn: '1h',
   })
 
   return token

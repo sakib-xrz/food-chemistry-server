@@ -342,7 +342,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
     	max-width: 330px;
     	margin: 14px auto 0;
     	font-size: 14px;
-    ">This link will expire in 5 hours</small>
+    ">This link will expire in 1 hour</small>
                                 </td>
                             </tr>
                         </tbody>
