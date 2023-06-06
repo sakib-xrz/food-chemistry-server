@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt'
 import generateToken from '../../utils/generateToken'
 import config from '../../../config'
 import sendEmail from '../../utils/sentEmail'
+import jwt, { JwtPayload } from 'jsonwebtoken'
 
 const createUserHandler = async (req: Request, res: Response) => {
   const { name, email, password, confirmPassword } = req.body
@@ -68,6 +69,47 @@ const createUserHandler = async (req: Request, res: Response) => {
   }
 }
 
+const verifyUserHandler = async (req: Request, res: Response) => {
+  const { token } = req.query
+
+  const { JWT_SECRET } = config
+
+  if (!JWT_SECRET) {
+    return res.status(500).json({
+      success: false,
+      message: 'JWT secret is missing or undefined',
+    })
+  }
+
+  const newUser = jwt.verify(token as string, JWT_SECRET) as JwtPayload
+
+  if (!newUser) {
+    return res.status(400).json({
+      success: false,
+      message: 'Invalid Token',
+    })
+  }
+
+  const { email } = newUser
+
+  const existingUser = await userService.findUserByEmail(email)
+
+  if (existingUser?.verified) {
+    return res.status(409).json({
+      success: false,
+      message: 'Email already Verified',
+    })
+  }
+
+  await userService.verifyUser(email)
+
+  return res.status(201).json({
+    success: true,
+    message: 'Email verified successfully',
+  })
+}
+
 export default {
   createUserHandler,
+  verifyUserHandler,
 }

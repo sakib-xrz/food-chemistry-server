@@ -1,15 +1,20 @@
-import IUser from "./user.interface"
-import { User } from "./user.model"
+import IUser from './user.interface'
+import { User } from './user.model'
 
 const createUserToDatabase = (data: Partial<IUser>) => {
-    return User.create(data)
+  return User.create(data)
 }
 
-const findUserByEmail = async (email:string) => {
-    return User.findOne({ email: email })
+const findUserByEmail = async (email: string) => {
+  return User.findOne({ email: email })
+}
+
+const verifyUser = async (email: string) => {
+  return User.findOneAndUpdate({ email: email }, { verified: true })
 }
 
 export default {
   createUserToDatabase,
   findUserByEmail,
+  verifyUser,
 }
