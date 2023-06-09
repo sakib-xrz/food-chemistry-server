@@ -20,13 +20,13 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
       to: options?.email, // list of receivers
       subject: 'Activate your food chemistry account', // Subject line
       html: `
-          <head>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style type="text/css">
         body {
             margin: 0;
-            background: #FEFEFE;
+            background: #fefefe;
             color: #585858;
         }
 
@@ -57,7 +57,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
 
         .section,
         .sectionlike {
-            background: #C9F9E9;
+            background: #d99904;
         }
 
         .section {
@@ -78,7 +78,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
         }
 
         .section_zag {
-            background: #F4FBF9;
+            background: #d99904;
         }
 
         .imageless_section {
@@ -115,7 +115,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
         }
 
         a {
-            color: #ff9900;
+            color: #d99904;
             font-weight: 500;
             word-break: break-word;
             /* Footer has long unsubscribe link */
@@ -125,7 +125,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
             display: block;
             width: 100%;
             max-width: 300px;
-            background: #ff9900;
+            background: #d99904;
             border-radius: 8px;
             color: #fff;
             font-size: 18px;
@@ -150,7 +150,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
 
         .footer,
         .footer_like {
-            background: #ff9900;
+            background: #d99904;
         }
 
         .footer {
@@ -162,11 +162,11 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
             text-align: center;
             font-size: 12px;
             line-height: initial;
-            color: #005750;
+            color: #d99904;
         }
 
         .footer_content a {
-            color: #005750;
+            color: #d99904;
         }
 
         .footer_item_image {
@@ -181,7 +181,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
             padding: 20px 0 40px;
             margin: 0;
             font-size: 12px;
-            color: #A5A5A5;
+            color: #a5a5a5;
             line-height: 1.5;
         }
 
@@ -255,6 +255,7 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
 
         .marginless {
             margin: 0;
+            color: white;
         }
 
         /* Restricting responsive for iOS Mail app only as Inbox/Gmail have render bugs */
@@ -276,73 +277,141 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
     </style>
 </head>
 
-<body style="	margin-top: 5rem;
-    	background: #FEFEFE;
-    	color: #585858;
-    ">
-    <span class="preheader" style="display: none !important; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;border-collapse: collapse;border: 0px;"></span>
+<body style="margin-top: 5rem; background: #fefefe; color: #585858">
+    <span
+        class="preheader"
+        style="
+            display: none !important;
+            visibility: hidden;
+            opacity: 0;
+            color: transparent;
+            height: 0;
+            width: 0;
+            border-collapse: collapse;
+            border: 0px;
+        "
+    ></span>
     <!-- Carpool logo -->
-    <table align="center" border="0" cellspacing="0" cellpadding="0" style="	font-size: 15px;
-    	line-height: 23px;
-    	max-width: 500px;
-    	min-width: 460px;
-    	text-align: center;
-    ">
+    <table
+        align="center"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="
+            font-size: 15px;
+            line-height: 23px;
+            max-width: 500px;
+            min-width: 460px;
+            text-align: center;
+        "
+    >
         <tbody style="margin-top: 2rem">
             <!-- Header -->
             <tr>
-                <td class="sectionlike imageless_section" style="	font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    	vertical-align: top;
-        border: none !important;
-      padding-bottom: 10px;
-    padding-bottom: 20px;"></td>
+                <td
+                    class="sectionlike imageless_section"
+                    style="
+                        font-family: -apple-system, BlinkMacSystemFont, Roboto,
+                            sans-serif;
+                        vertical-align: top;
+                        border: none !important;
+                        padding-bottom: 10px;
+                        padding-bottom: 20px;
+                    "
+                ></td>
             </tr>
             <!-- Content -->
             <tr>
-                <td class="section" style="	font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    	vertical-align: top;
-        border: none !important;
-    	padding: 0 20px;
-    ">
-                    <table border="0" cellspacing="0" cellpadding="0" class="section_content" style="	font-size: 15px;
-    	line-height: 23px;
-    	max-width: 500px;
-    	min-width: 460px;
-    	text-align: center;
-    	width: 100%;
-    	background: #fff;
-    ">
+                <td
+                    class="section"
+                    style="
+                        font-family: -apple-system, BlinkMacSystemFont, Roboto,
+                            sans-serif;
+                        vertical-align: top;
+                        border: none !important;
+                        padding: 0 20px;
+                    "
+                >
+                    <table
+                        border="0"
+                        cellspacing="0"
+                        cellpadding="0"
+                        class="section_content"
+                        style="
+                            font-size: 15px;
+                            line-height: 23px;
+                            max-width: 500px;
+                            min-width: 460px;
+                            text-align: center;
+                            width: 100%;
+                            background: #fff;
+                        "
+                    >
                         <tbody>
-
                             <tr>
-
-                                <td class="section_content_padded" style="	font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    	vertical-align: top;
-        border: none !important;
-    padding: 0 35px 40px;">
-                                    <h1 style="	font-size: 20px;
-    	font-weight: 500;
-    	margin-top: 40px;
-    	margin-bottom: 0;
-    ">Hi ${options?.name}</h1>
-                                    <p class="near_title last" style="margin-top: 10px;margin-bottom: 0;">Please verify that your email address is <br/> <strong>${options?.email}</strong> <br/> and that you entered it when signing up for <br/> Food Chemistry.</p>
-                                    <a href=${activationUrl} style="	display: block;
-    	width: 100%;
-    	max-width: 300px;
-    	background: #ff9900;
-    	border-radius: 8px;
-    	color: #fff;
-    	font-size: 18px;
-    	padding: 12px 0;
-    	margin: 30px auto 0;
-    	text-decoration: none;
-    " target="_blank">Verify email</a>
-                                    <small style="	display: block;
-    	width: 100%;
-    	max-width: 330px;
-    	margin: 14px auto 0;
-    	font-size: 14px;
-    ">This link will expire in 1 hour</small>
+                                <td
+                                    class="section_content_padded"
+                                    style="
+                                        font-family: -apple-system,
+                                            BlinkMacSystemFont, Roboto,
+                                            sans-serif;
+                                        vertical-align: top;
+                                        border: none !important;
+                                        padding: 0 35px 40px;
+                                    "
+                                >
+                                    <h1
+                                        style="
+                                            font-size: 20px;
+                                            font-weight: 500;
+                                            margin-top: 40px;
+                                            margin-bottom: 0;
+                                        "
+                                    >
+                                        Hi ${options?.name}
+                                    </h1>
+                                    <p
+                                        class="near_title last"
+                                        style="
+                                            margin-top: 10px;
+                                            margin-bottom: 0;
+                                        "
+                                    >
+                                        Please verify that your email address is
+                                        <br />
+                                        <strong>${options?.email}</strong>
+                                        <br />
+                                        and that you entered it when signing up
+                                        for <br />
+                                        Food Chemistry.
+                                    </p>
+                                    <a
+                                        href="${activationUrl}"
+                                        style="
+                                            display: block;
+                                            width: 100%;
+                                            max-width: 300px;
+                                            background: #d99904;
+                                            border-radius: 8px;
+                                            color: #fff;
+                                            font-size: 18px;
+                                            padding: 12px 0;
+                                            margin: 30px auto 0;
+                                            text-decoration: none;
+                                        "
+                                        target="_blank"
+                                        >Verify email</a
+                                    >
+                                    <small
+                                        style="
+                                            display: block;
+                                            width: 100%;
+                                            max-width: 330px;
+                                            margin: 14px auto 0;
+                                            font-size: 14px;
+                                        "
+                                        >This link will expire in 1 hour</small
+                                    >
                                 </td>
                             </tr>
                         </tbody>
@@ -351,26 +420,48 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
             </tr>
             <!-- Signature -->
             <tr>
-                <td class="section" style="	font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    	vertical-align: top;
-        border: none !important;
-    	padding: 0 20px;
-    ">
-                    <table border="0" cellspacing="0" cellpadding="0" class="section_content section_zag" style="	font-size: 15px;
-    	line-height: 23px;
-    	max-width: 500px;
-    	min-width: 460px;
-    	text-align: center;
-    	width: 100%;
-    	background: #fff;
-    background: #F4FBF9;">
+                <td
+                    class="section"
+                    style="
+                        font-family: -apple-system, BlinkMacSystemFont, Roboto,
+                            sans-serif;
+                        vertical-align: top;
+                        border: none !important;
+                        padding: 0 20px;
+                    "
+                >
+                    <table
+                        border="0"
+                        cellspacing="0"
+                        cellpadding="0"
+                        class="section_content section_zag"
+                        style="
+                            font-size: 15px;
+                            line-height: 23px;
+                            max-width: 500px;
+                            min-width: 460px;
+                            text-align: center;
+                            width: 100%;
+                            background: #fff;
+                            background: #d99904;
+                        "
+                    >
                         <tbody>
                             <tr>
-                                <td class="signature" style="	font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    	vertical-align: top;
-        border: none !important;
-    padding: 20px;">
-                                    <p class="marginless" style="margin: 0;">Keep Ordering, <br>The Food Chemistry Team
+                                <td
+                                    class="signature"
+                                    style="
+                                        font-family: -apple-system,
+                                            BlinkMacSystemFont, Roboto,
+                                            sans-serif;
+                                        vertical-align: top;
+                                        border: none !important;
+                                        padding: 20px;
+                                    "
+                                >
+                                    <p class="marginless" style="margin: 0">
+                                        Keep Ordering, <br />The Food Chemistry
+                                        Team
                                     </p>
                                 </td>
                             </tr>
@@ -380,25 +471,35 @@ const sendEmail = async (options: Partial<IUser>, activationUrl: string) => {
             </tr>
             <!-- Legal footer -->
             <tr>
-                <td style="	font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    	vertical-align: top;
-        border: none !important;
-    ">
-                    <p class="footer_legal" style="	padding: 20px 0 40px;
-    	margin: 0;
-    	font-size: 12px;
-    	color: #A5A5A5;
-    	line-height: 1.5;
-    ">
-                        If you did not enter this email address when signing up for Food Chemistry <br/> disregard this message.
-                        <br><br> This is a mandatory service email from Food Chemistry.
+                <td
+                    style="
+                        font-family: -apple-system, BlinkMacSystemFont, Roboto,
+                            sans-serif;
+                        vertical-align: top;
+                        border: none !important;
+                    "
+                >
+                    <p
+                        class="footer_legal"
+                        style="
+                            padding: 20px 0 40px;
+                            margin: 0;
+                            font-size: 12px;
+                            color: #a5a5a5;
+                            line-height: 1.5;
+                        "
+                    >
+                        If you did not enter this email address when signing up
+                        for Food Chemistry <br />
+                        disregard this message. <br /><br />
+                        This is a mandatory service email from Food Chemistry.
                     </p>
                 </td>
             </tr>
         </tbody>
     </table>
-
 </body>
+
           `,
     })
     .then(data => {

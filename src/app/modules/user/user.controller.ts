@@ -8,7 +8,7 @@ import jwt, { JwtPayload } from 'jsonwebtoken'
 
 const createUserHandler = async (req: Request, res: Response) => {
   const { name, email, password, confirmPassword } = req.body
-
+  
   try {
     if (!name || !email || !password || !confirmPassword) {
       return res.status(400).json({
