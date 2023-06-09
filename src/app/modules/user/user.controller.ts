@@ -139,7 +139,7 @@ const loginUserHandler = async (req: Request, res: Response) => {
     }
 
     if (!user?.verified) {
-      return res.status(404).json({
+      return res.status(400).json({
         success: false,
         message: 'Email not verified',
       })
