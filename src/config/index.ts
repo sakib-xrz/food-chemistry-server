@@ -8,7 +8,10 @@ export default {
   database_uri: process.env.DATABASE_URI,
   JWT_SECRET: process.env.JWT_SECRET,
   FRONT_END_BASE_URL: process.env.FRONT_END_BASE_URL,
+  BASE_URL: process.env.BASE_URL,
   SMT_USER: process.env.SMT_USER,
   SMT_PASSWORD: process.env.SMT_PASSWORD,
   SMT_HOST: process.env.SMT_HOST,
+  STORE_ID: process.env.STORE_ID,
+  STORE_PASS: process.env.STORE_PASS,
 }
